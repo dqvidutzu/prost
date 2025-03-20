@@ -1,0 +1,72 @@
+<!-- Created by dqvidutzul -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>prost?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-size: 3rem;
+            text-align:center;
+            background-color:#bcaaaa;
+            font-family:sans-serif;
+        }
+        button {
+            margin: 1rem;
+            padding: 1rem;
+            font-size: 1.5rem;
+            border-radius: 0.5rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+        #buttons-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="are-you-dumb">ai ceea ce se numeste "creier"?</div>
+    <div id="buttons-container">
+        <button id="yes-button">nu</button>
+        <button id="no-button">da</button>
+    </div>
+<script>
+        const areYouDumb = document.getElementById("are-you-dumb");
+        const yesButton = document.getElementById("yes-button");
+        const noButton = document.getElementById("no-button");
+        const buttonsContainer = document.getElementById("buttons-container");
+
+        function alignNoButtonRandomly() {
+            const randomX = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
+            noButton.style.position = "absolute";
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+areYouDumb.textContent="esti 100% sigur...?";
+        }
+
+        yesButton.addEventListener("click", () => {
+            areYouDumb.textContent = "stiam deja 🤭";
+            buttonsContainer.style.display = "none";
+            areYouDumb.style.textAlign = "center";
+            noButton.removeEventListener("click", alignNoButtonRandomly);
+        });
+
+        noButton.addEventListener("click", alignNoButtonRandomly);
+    </script>
+</body>
+</html>
